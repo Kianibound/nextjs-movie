@@ -2,8 +2,9 @@ import Head from 'next/head'
 import HeroSection from "../components/heroSection";
 import SliderContainer from "../components/sliderContainer";
 import {useAxios} from "../hooks/useAxios";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import MovieList from "../components/page/index/movieList";
+import Loading from "../components/loading";
 
 const baseUrl = "https://api.themoviedb.org/3/"
 const moviesEndpoint = "movie/now_playing"
@@ -11,9 +12,9 @@ const tvEndpoint = "tv/airing_today"
 const token = "301b07456b1452abbdda1e23bf72876d"
 
 export default function Home() {
-
     const [moviesRes, fetchMovies] = useAxios()
     const [tvRes, fetchTv] = useAxios()
+
 
     useEffect(() => {
         fetchMovies(baseUrl + moviesEndpoint + "?api_key=" + token)
@@ -42,11 +43,12 @@ export default function Home() {
                 <div className={`transform -translate-y-32 bg-gray-800/80 rounded-t-[50px]`}>
                     {
                         moviesRes.loading ?
-                            <h1 className={`text-white text-center p-24 text-xl font-bold`}>Loading ...</h1> :
+                            <Loading/>
+                             :
                             <SliderContainer title={"New Releases"} data={sliderData}/>
                     }
                 </div>
-                <MovieList />
+                <MovieList/>
             </main>
         </div>
     )
@@ -57,6 +59,7 @@ export default function Home() {
 //     await fetch('https://jsonplaceholder.typicode.com/posts')
 //         .then(response => response.json())
 //         .then(json => result=json )
+//     console.log("server")
 //
 //     return{
 //         props:{

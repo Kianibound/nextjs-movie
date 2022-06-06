@@ -4,7 +4,6 @@ import Image from "next/image";
 const imagePath = "https://image.tmdb.org/t/p/w500"
 
 const MovieItem = ({data}) =>{
-    console.log(data)
     const src = imagePath+data?.poster_path
     return(
         <div className={`bg-gray-900/60 p-4 rounded-xl `}>

@@ -1,12 +1,12 @@
 import React from "react";
 
 
-const Filter = ({tabTitles,activeTab,setActiveTab}) =>{
+const Filter = ({tabTitles,activeTab,setActiveTab,searchHandler,query}) =>{
     return(
         <div className={`p-4 sticky top-28 right-0 bg-gray-800 z-10`}>
             <div className={`flex items-center justify-between bg-gray-900 rounded-xl p-4 `}>
                 <div className={`bg-gray-800 rounded-lg w-1/4`}>
-                    <input placeholder={"movie name ..."} className={`w-full p-3 bg-transparent`} type="text"/>
+                    <input value={query} placeholder={"movie name ..."} className={`w-full p-3 bg-transparent text-white`} type="text" onChange={(e)=>searchHandler(e.target.value)}/>
                 </div>
                 <div>
                     {

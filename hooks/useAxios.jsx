@@ -14,6 +14,9 @@ export const useAxios = () =>{
             .catch(e=>setError(e))
             .finally(()=>setLoading(false))
     }
+
+
     const res = {data,loading,error}
+
     return [res,fetch]
 }
