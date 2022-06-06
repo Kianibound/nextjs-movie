@@ -12,7 +12,7 @@ const MovieItem = ({data}) =>{
             <div className={`mt-4  `}>
                 <div className={`whitespace-nowrap text-ellipsis overflow-hidden text-lg text-white`}>{data?.title??data.name}</div>
                 <div className={`flex items-center justify-between`}>
-                <div className={`text-sm text-white/30 py-2`}>VOTE: <span className={`text-yellow-500 font-bold p-2`}>{data?.vote_average}</span></div>
+                <div className={`text-sm text-white/30 py-2`}>Rate: <span className={`text-yellow-500 font-bold p-2`}>{data?.vote_average}</span></div>
                 <div className={`text-sm text-white/30`}>{data?.release_date??data?.first_air_date}</div>
 
                 </div>

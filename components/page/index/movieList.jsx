@@ -21,7 +21,7 @@ const MovieList = () =>{
 
 
     return(
-        <div className={`px-12 relative`}>
+        <div className={`px-12 relative transform -translate-y-28`}>
             <Filter tabTitles={tabTitles} activeTab={activeTab} setActiveTab={setActiveTab}/>
             {
                 listRes.loading ? <h1 className={`text-xl font-bold text-white text-center p-24`}>Loading...</h1>:
