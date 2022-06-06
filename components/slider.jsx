@@ -11,11 +11,10 @@ import { Pagination,Navigation } from "swiper";
 import MovieItem from "./movieItem";
 
 const Slider = ({data}) =>{
-    console.log(data)
     return(
         <div className={`text-white my-6`}>
             <Swiper spaceBetween={7}
-                    slidesPerView={5.7}
+                    slidesPerView={5.3}
                     pagination={{clickable:true}}
                     modules={[Navigation]}
                     className="mySwiper">
