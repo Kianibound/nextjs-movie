@@ -5,6 +5,8 @@ import {useAxios} from "../hooks/useAxios";
 import {useEffect, useState} from "react";
 import MovieList from "../components/page/index/movieList";
 import Loading from "../components/loading";
+import MovieItem from "../components/movieItem";
+import TvItem from "../components/TvItem";
 
 const baseUrl = "https://api.themoviedb.org/3/"
 const moviesEndpoint = "movie/now_playing"
@@ -15,7 +17,6 @@ export default function Home() {
     const [moviesRes, fetchMovies] = useAxios()
     const [tvRes, fetchTv] = useAxios()
 
-
     useEffect(() => {
         fetchMovies(baseUrl + moviesEndpoint + "?api_key=" + token)
         fetchTv(baseUrl + tvEndpoint + "?api_key=" + token)
@@ -24,11 +25,13 @@ export default function Home() {
     const sliderData = [
         {
             title: "Cinema",
-            value: moviesRes?.data?.results
+            value: moviesRes?.data?.results,
+            item:(item)=><MovieItem data={item}/>
         },
         {
             title: "Tv",
-            value: tvRes?.data?.results
+            value: tvRes?.data?.results,
+            item:(item)=><TvItem data={item}/>
         }
     ]
     return (
@@ -53,17 +56,3 @@ export default function Home() {
         </div>
     )
 }
-
-// export async function getStaticProps(){
-//     let result
-//     await fetch('https://jsonplaceholder.typicode.com/posts')
-//         .then(response => response.json())
-//         .then(json => result=json )
-//     console.log("server")
-//
-//     return{
-//         props:{
-//             data:result
-//         }
-//     }
-// }

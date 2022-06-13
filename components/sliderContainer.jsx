@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Slider from "./slider";
+import MovieItem from "./movieItem";
 
 const SliderContainer = ({data,title}) =>{
     const [active,setActive] = useState(data[0].title)
@@ -18,10 +19,9 @@ const SliderContainer = ({data,title}) =>{
                     )
                 })
             }
-
             </div>
             <div className={`block w-full `}>
-            <Slider data={data.find(item=>item.title===active).value}/>
+            <Slider data={data.find(item=>item.title===active).value} render={data.find(item=>item.title===active).item}/>
             </div>
         </div>
     )

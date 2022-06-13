@@ -14,9 +14,8 @@ const MovieList = () => {
     const [listRes, fetchList] = useAxios()
     const [searchRes, setSearchRes] = useState()
     const [query,setQuery]=useState()
-    const list = searchRes?? listRes?.data?.results
+    const list = searchRes ?? listRes?.data?.results
 
-    console.log(listRes,query,searchRes,activeTab)
 
     useEffect(() => {
         fetchList(baseUrl + "movie/" + activeTab + "?api_key=" + token)

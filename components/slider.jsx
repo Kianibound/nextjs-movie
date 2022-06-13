@@ -1,16 +1,10 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-
-// import required modules
 import { Pagination,Navigation } from "swiper";
-import MovieItem from "./movieItem";
 
-const Slider = ({data}) =>{
+const Slider = ({data,render}) =>{
     return(
         <div className={`text-white my-6`}>
             <Swiper spaceBetween={7}
@@ -20,7 +14,7 @@ const Slider = ({data}) =>{
                     className="mySwiper">
                 {
                     data?.map((item,index)=>{
-                        return <SwiperSlide key={index}><MovieItem data={item}/></SwiperSlide>
+                        return <SwiperSlide key={index}>{render(item)}</SwiperSlide>
                     })
                 }
             </Swiper>
