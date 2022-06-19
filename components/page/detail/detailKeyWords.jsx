@@ -14,7 +14,6 @@ const DetailKeyWords = () => {
         fetchKeyWords(StaticRoutes.baseUrl + query.type + "/" + query.id + "/keywords" + "?api_key=" + StaticRoutes.token)
     }, [router.isReady])
 
-    console.log(keywordsRes)
     return (
         <>
             <div className={`text-white text-lg font-bold`}>
