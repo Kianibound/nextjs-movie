@@ -28,7 +28,7 @@ const Credits = () =>{
     useEffect(()=>{
         query.id &&
         fetchCredits(baseUrl + query.type + "/" + query.id + "/credits" + "?api_key=" + token)
-    },[router.isReady])
+    },[router.isReady,router.query])
 
     return(
         <div>

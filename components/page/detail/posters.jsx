@@ -18,7 +18,7 @@ const Posters = () => {
     useEffect(() => {
         query.id &&
         fetchPosters(StaticRoutes.baseUrl + query.type + "/" + query.id + "/images" + "?api_key=" + StaticRoutes.token)
-    }, [router.isReady])
+    }, [router.isReady,router.query])
 
     return (
         <div className={`mt-4 mb-8`}>

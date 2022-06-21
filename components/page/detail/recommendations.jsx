@@ -6,6 +6,11 @@ import Loading from "../../loading";
 import Slider from "../../slider";
 import MovieItem from "../../movieItem";
 
+
+const sliderDefault = {
+    spaceBetween:7,
+    slidesPerView:4
+}
 const Recommendations = () =>{
     const [recommendsRes, fetchRecommendations] = useAxios()
     const router = useRouter()
@@ -14,13 +19,13 @@ const Recommendations = () =>{
     useEffect(() => {
         query.id &&
         fetchRecommendations(StaticRoutes.baseUrl + "movie/" + query.id + "/similar?api_key=" + StaticRoutes.token)
-    }, [router.isReady])
+    }, [router.isReady,router.query])
 
     return (
         recommendsRes.loading ? <Loading/> :
             <div className={`p-12 `}>
                 <div className={`text-white text-xl font-bold`}>Similar Movies</div>
-                <Slider  data={recommendsRes?.data?.results} render={(data) => <MovieItem data={data} />} />
+                <Slider option={sliderDefault}  data={recommendsRes?.data?.results} render={(data) => <MovieItem data={data} />} />
             </div>
     )
 }

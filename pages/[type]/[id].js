@@ -17,7 +17,7 @@ const MovieDetailPage = () => {
     useEffect(() => {
         query.id &&
         fetchDetail(StaticRoutes.baseUrl + query.type + "/" + query.id + "?api_key=" + StaticRoutes.token)
-    }, [router.isReady]);
+    }, [router.isReady,router.query]);
 
     return (
         <div className={`bg-gray-800`}>

@@ -12,8 +12,7 @@ const DetailWatchingProviders = () =>{
     useEffect(() => {
         query.id &&
         fetchWatchingProviders(StaticRoutes.baseUrl + query.type + "/" + query.id + "/watch/providers" + "?api_key=" + StaticRoutes.token)
-    }, [router.isReady])
-    console.log(watchingProviders)
+    }, [router.isReady,router.query])
     return(
         <div className={`my-12`}>
             <div className={`text-white text-lg font-bold`}>

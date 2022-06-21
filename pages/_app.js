@@ -1,7 +1,21 @@
 import '../styles/globals.css'
+import Layout from "../components/layout";
+import ModalContextProvider from "../context/modalContextProvider";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+//Detail Page
+//layout
+//Modal (unmount handler)
+//axiosApi
+//search
+
+function MyApp({Component, pageProps}) {
+    return (
+        <ModalContextProvider>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </ModalContextProvider>
+    )
 }
 
 export default MyApp

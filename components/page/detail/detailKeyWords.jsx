@@ -12,7 +12,7 @@ const DetailKeyWords = () => {
     useEffect(() => {
         query.id &&
         fetchKeyWords(StaticRoutes.baseUrl + query.type + "/" + query.id + "/keywords" + "?api_key=" + StaticRoutes.token)
-    }, [router.isReady])
+    }, [router.isReady,router.query])
 
     return (
         <>

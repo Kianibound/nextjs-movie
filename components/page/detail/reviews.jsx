@@ -17,7 +17,7 @@ const Reviews = () => {
     useEffect(() => {
         query.id &&
         fetchReviews(StaticRoutes.baseUrl + "movie/" + query.id + "/reviews?api_key=" + StaticRoutes.token)
-    }, [router.isReady])
+    }, [router.isReady,router.query])
     return (
         reviewsRes.loading ? <Loading/> :
             <div className={`px-12`}>
